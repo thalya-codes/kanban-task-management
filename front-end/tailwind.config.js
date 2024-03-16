@@ -24,6 +24,21 @@ module.exports = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
+          purple: '#635fc7',
+          'light-purple': '#a8a4ff',
+          'medium-purple': '#625fc74b',
+          'dark-purple-level-1': '#625fc721',
+          'dark-purple-level-2': '#625fc70a',
+          red: '#ea5555',
+          'light-red': '#ff9898',
+        },
+        neutral: {
+          gray: '#e9effa8e',
+          'dark-gray': '#e9effa2c',
+          'medium-gray': '#828fa3',
+          'light-gray': '#f4f7fd',
+          'bluish-black': '#000112',
+          'translucent-black': '#00000042',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
@@ -38,6 +53,10 @@ module.exports = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      boxShadow: {
+        'elevation-1': '0px 10px 20px rgba(54, 78, 126, 0.25)',
+        'elevation-2': '0px 4px 6px rgba(54, 78, 126, 0.101545)',
       },
     },
   },
