@@ -25,6 +25,7 @@ module.exports = {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
           purple: '#635fc7',
+          'extra-light-purple': '#f0effa',
           'light-purple': '#a8a4ff',
           'medium-purple': '#625fc74b',
           'dark-purple-level-1': '#625fc721',
@@ -57,6 +58,9 @@ module.exports = {
       boxShadow: {
         'elevation-1': '0px 10px 20px rgba(54, 78, 126, 0.25)',
         'elevation-2': '0px 4px 6px rgba(54, 78, 126, 0.101545)',
+      },
+      fontFamily: {
+        poppins: ['Poppins'],
       },
     },
   },
