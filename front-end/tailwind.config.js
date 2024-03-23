@@ -35,7 +35,7 @@ module.exports = {
         },
         neutral: {
           gray: '#e9effa8e',
-          'dark-gray': '#e9effa2c',
+          'dark-gray': '#2b2c37',
           'medium-gray': '#828fa3',
           'light-gray': '#f4f7fd',
           'bluish-black': '#000112',
