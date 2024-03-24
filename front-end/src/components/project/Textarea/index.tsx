@@ -11,6 +11,7 @@ export function Textarea({
         'border rounded-sm outline-none focus:border-primary-purple px-3 py-2',
         className
       )}
+      data-testid="textarea"
       {...props}
     />
   );
