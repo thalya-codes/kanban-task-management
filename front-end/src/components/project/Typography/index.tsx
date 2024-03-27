@@ -7,10 +7,14 @@ export function Typography<Type>({
   color = 'gray',
   size = 'sm',
   children,
+  className = '',
   ...props
 }: TTypographyProps<Type>) {
   return (
-    <Tag className={cn(TypographyVariants({ color, size }))} {...props}>
+    <Tag
+      className={cn(TypographyVariants({ color, size }), className)}
+      {...props}
+    >
       {children}
     </Tag>
   );
