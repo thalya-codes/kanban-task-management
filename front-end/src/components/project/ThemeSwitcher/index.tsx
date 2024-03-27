@@ -7,9 +7,9 @@ import { ThemeSwitcherVariants } from './variants';
 export function ThemeSwitcher({ mode = 'light' }: { mode?: 'light' | 'dark' }) {
   return (
     <div className={cn(ThemeSwitcherVariants({ mode }))}>
-      <LightThemeIcon />
+      <LightThemeIcon className='w-6 h-6' />
       <Switch />
-      <DarkThemeIcon />
+      <DarkThemeIcon className='w-6 h-6' />
     </div>
   );
 }
