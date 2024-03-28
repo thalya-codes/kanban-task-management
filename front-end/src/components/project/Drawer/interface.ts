@@ -7,3 +7,7 @@ export interface IDrawerContentProps {
   activeBoardId: string;
   onCreateNewBoard: () => void;
 }
+
+export interface IDrawerTriggerProps {
+  onShow: Dispatch<SetStateAction<boolean>>;
+}
