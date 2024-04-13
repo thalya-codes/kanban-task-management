@@ -4,12 +4,13 @@ export const TypographyVariants = cva('font-medium', {
   variants: {
     size: {
       xs: 'text-xs',
-      sm: 'text-base',
-      md: 'text-xl',
+      sm: 'text-sm',
+      md: 'text-base',
+      xl: 'text-xl',
     },
     color: {
-        black: "text-black",
-        gray: "text-neutral-medium-gray"
-    }
+      black: 'text-black',
+      gray: 'text-neutral-medium-gray',
+    },
   },
 });
