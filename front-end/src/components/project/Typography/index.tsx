@@ -5,7 +5,7 @@ import { TTypographyProps } from './types';
 export function Typography<Type>({
   as: Tag = 'p',
   color = 'gray',
-  size = 'sm',
+  size = 'md',
   children,
   className = '',
   ...props
