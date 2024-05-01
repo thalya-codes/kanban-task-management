@@ -1,8 +1,8 @@
 import { hash } from 'bcrypt';
 import { Response } from 'express';
-import { UserModel } from '@/database/Models/UserModel';
-import { HttpError } from '@/errors/HttpError';
-import { IUser } from '@/interfaces';
+import { UserModel } from '../../database/Models/UserModel';
+import { HttpError } from '../../errors/HttpError';
+import { IUser } from '../../interfaces';
 
 export async function treatRegisterUserErrors({
   email,
