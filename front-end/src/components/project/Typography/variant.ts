@@ -7,10 +7,12 @@ export const TypographyVariants = cva('font-medium', {
       sm: 'text-sm',
       md: 'text-base',
       xl: 'text-xl',
+      '2xl': 'text-2xl',
     },
     color: {
       black: 'text-black',
       gray: 'text-neutral-medium-gray',
+      purple: 'text-primary-purple',
     },
   },
 });
