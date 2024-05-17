@@ -5,5 +5,5 @@ export interface IFieldContainerProps {
   text: string;
   children: ReactNode;
   className?: string;
-  color?: 'gray' | 'black';
+  color?: 'gray' | 'black' | 'purple';
 }
