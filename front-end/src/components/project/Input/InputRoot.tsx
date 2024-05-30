@@ -9,7 +9,7 @@ export function InputRoot({
   return (
     <div
       className={cn(
-        'flex items-center justify-between rounded-sm border border-input  [&>input]:flex-1 [&>input]:border-none bg-white pr-2',
+        'flex items-center justify-between rounded-sm border border-input  [&>input]:flex-1 [&>input]:border-none has-[:focus]:border-primary-purple  bg-white pr-2',
         status === 'error' &&
           'border-primary-red focus-within:border-primary-red',
         className
