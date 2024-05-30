@@ -12,4 +12,4 @@ export * from './ModalTaskDetails';
 export * from './Textarea';
 export * from './ThemeSwitcher';
 export * from './Typography';
-export * from './FormBase';
+export * from './Form';
