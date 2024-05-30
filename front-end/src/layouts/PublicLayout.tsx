@@ -4,7 +4,7 @@ import Logo from '@/assets/logo-dark.svg?react';
 
 export function PublicLayout() {
   return (
-    <div className='w-full h-screen justify-center bg-primary-extra-light-purple'>
+    <>
       <header className='flex bg-white w-full h-[10%] justify-between items-center px-5'>
         <h1>
           <Logo />
@@ -12,7 +12,7 @@ export function PublicLayout() {
         <ThemeSwitcher className='w-1/6 bg-white' />
       </header>
 
-      <main className='flex justify-center items-center w-full h-4/6'>
+      <main className='self-center flex justify-center items-center w-full h-full'>
         <Outlet />
       </main>
 
@@ -28,6 +28,6 @@ export function PublicLayout() {
           </a>
         </p>{' '}
       </footer>
-    </div>
+    </>
   );
 }
