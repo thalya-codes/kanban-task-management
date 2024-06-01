@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+
 import {
   Button,
   FieldContainer,
@@ -22,7 +23,7 @@ export function LoginPage() {
           color='purple'
           size='2xl'
         >
-          Create an account
+          Sign in
         </Typography>
 
         <FieldContainer
@@ -42,6 +43,11 @@ export function LoginPage() {
         <Form.PasswordField register={register} />
         <Button className='rounded-sm'>Login</Button>
       </fieldset>
+      <Form.Footer
+        link={'/register'}
+        linkText={'Create an account'}
+        message=" Don't have an account yet?"
+      />
     </Form.Root>
   );
 }
