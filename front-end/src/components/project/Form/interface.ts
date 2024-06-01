@@ -5,3 +5,9 @@ export interface IFormPasswordFieldProps extends InputProps {
   register: UseFormRegister<FieldValues>;
   errorMsg?: string | undefined;
 }
+
+export interface IFormFooterProps {
+  link: string;
+  linkText: string;
+  message: string;
+}
