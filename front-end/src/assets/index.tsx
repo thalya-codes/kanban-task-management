@@ -5,5 +5,15 @@ import Grid from '@/assets/icon-board.svg?react';
 import Moon from '@/assets/icon-dark-theme.svg?react';
 import DarkLogo from '@/assets/logo-dark.svg?react';
 import LightLogo from '@/assets/logo-light.svg?react';
+import InfoMark from '@/assets/info-mark.svg?react';
 
-export { OpenEye, HideEye, VerticalEllipsis, Grid, Moon, DarkLogo, LightLogo };
+export {
+  OpenEye,
+  HideEye,
+  VerticalEllipsis,
+  Grid,
+  Moon,
+  DarkLogo,
+  LightLogo,
+  InfoMark,
+};
