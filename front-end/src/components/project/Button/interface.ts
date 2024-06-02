@@ -9,4 +9,5 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
     | 'link-red'
     | 'drawer';
   children: ReactNode;
+  disabled?: boolean;
 }
