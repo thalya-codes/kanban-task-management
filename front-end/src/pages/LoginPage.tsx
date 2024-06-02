@@ -1,6 +1,8 @@
 import 'react-toastify/dist/ReactToastify.css';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 import { emailPasswordSchema } from '@/utils/schemas';
 import {
   Button,
@@ -10,12 +12,11 @@ import {
   Typography,
 } from '@/components/project';
 import { usePost } from '@/hooks/services/usePost';
-import { ToastContainer } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Loading } from '@/components/library';
 
 export function LoginPage() {
   const navigateTo = useNavigate();
-  const { mutate: authenticateUser } = usePost({
+  const { mutate: authenticateUser, isPending } = usePost({
     key: 'log-user',
     endpoint: 'login',
   });
@@ -74,7 +75,9 @@ export function LoginPage() {
             />
           </div>
 
-          <Button className='rounded-sm'>Login</Button>
+          <Button className='rounded-sm' disabled={isPending}>
+            {isPending ? <Loading /> : 'Login'}
+          </Button>
         </fieldset>
         <Form.Footer
           link={'/register'}
