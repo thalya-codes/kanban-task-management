@@ -9,8 +9,17 @@ import {
   Input,
   Typography,
 } from '@/components/project';
+import { usePost } from '@/hooks/services/usePost';
+import { ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export function LoginPage() {
+  const navigateTo = useNavigate();
+  const { mutate: authenticateUser } = usePost({
+    key: 'log-user',
+    endpoint: 'login',
+  });
+
   const {
     handleSubmit,
     register,
@@ -19,13 +28,15 @@ export function LoginPage() {
     resolver: zodResolver(emailPasswordSchema),
   });
 
-  const onSubmit = (data: any): void => {
-    console.log({ data });
+  const onSubmit = (data: any) => {
+    authenticateUser(data);
+    navigateTo('/boards');
   };
+
   return (
     <>
-      <Form.Root onSubmit={handleSubmit(onSubmit)}>
-        <fieldset className='flex flex-col gap-8'>
+      <Form.Root onSubmit={handleSubmit(onSubmit as any)}>
+        <fieldset className='flex flex-col gap-8 '>
           <Typography
             as='legend'
             className='text-center font-bold text-2xl leading-3 tracking-wide mb-8'
@@ -71,6 +82,7 @@ export function LoginPage() {
           message=" Don't have an account yet?"
         />
       </Form.Root>
+      <ToastContainer />
     </>
   );
 }
