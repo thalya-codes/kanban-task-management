@@ -1,7 +1,8 @@
 import { ForwardRefExoticComponent, forwardRef } from 'react';
-import { Input, FieldContainer } from '@/components/project';
+import { Input, Typography } from '@/components/project';
+import { Tooltip } from '@/components/library/Tooltip';
 import { useTogglePasswordType } from '@/hooks/useTogglePasswordType';
-import { OpenEye, HideEye } from '@/assets';
+import { OpenEye, HideEye, InfoMark } from '@/assets';
 import { IFormPasswordFieldProps } from './interface';
 
 export const FormPasswordField: ForwardRefExoticComponent<IFormPasswordFieldProps> =
@@ -9,12 +10,34 @@ export const FormPasswordField: ForwardRefExoticComponent<IFormPasswordFieldProp
     const { passwordType, togglePasswordType } = useTogglePasswordType();
 
     return (
-      <FieldContainer
-        htmlFor='password'
-        color='black'
-        text='Password'
-        className='text-primary-purple'
-      >
+      <div className='flex flex-col gap-2'>
+        <div className='flex gap-3 items-center w-full'>
+          <Typography
+            as='label'
+            size='sm'
+            htmlFor='password'
+            className='text-primary-purple'
+          >
+            Password
+          </Typography>
+
+          <Tooltip.Provider>
+            <Tooltip.Root>
+              <Tooltip.Trigger asChild>
+                <span>
+                  <InfoMark />
+                </span>
+              </Tooltip.Trigger>
+              <Tooltip.Content side='left'>
+                <p>
+                  The password must be have contain uppercase e lowercase
+                  letters, numbers, special character and at least 8 characters.
+                </p>
+              </Tooltip.Content>
+            </Tooltip.Root>
+          </Tooltip.Provider>
+        </div>
+
         <Input.Root>
           <Input.Field
             id='password'
@@ -38,6 +61,6 @@ export const FormPasswordField: ForwardRefExoticComponent<IFormPasswordFieldProp
           </button>
         </Input.Root>
         {errorMsg && <Input.ErrorMsg message={errorMsg} />}
-      </FieldContainer>
+      </div>
     );
   });
