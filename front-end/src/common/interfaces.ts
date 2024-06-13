@@ -7,3 +7,9 @@ export interface IHandleMultipleModalsVisibilityParams {
   setShowSecondary?: TSetStateBoolean;
   openSecondary?: boolean;
 }
+
+export interface IRequestResponse {
+  type: string;
+  message: string;
+  status: number;
+}
