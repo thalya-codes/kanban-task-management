@@ -11,8 +11,9 @@ export async function validateFields({
   password,
   name,
 }: IUserBaseInfos<{ name: string }>) {
-  if (!email || !name || !password)
+  if (!email || !name || !password) {
     throw new HttpError(REQUIRED_REGISTER_FIELDS_NOT_FILLED, 400);
+  }
 
   const user = await UserModel.findOne({ email });
 
