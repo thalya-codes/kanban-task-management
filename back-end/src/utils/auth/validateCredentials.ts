@@ -6,11 +6,12 @@ import { HttpError, INVALID_PASSWORD, INVALID_USER_EMAIL } from '../../errors';
 export async function validateCredentials({ email, password }: IUserBaseInfos) {
   const user = (await UserModel.findOne({ email })) as IUser;
 
-  if (!user.email) throw new HttpError(INVALID_USER_EMAIL, 401);
+  if (!user) throw new HttpError(INVALID_USER_EMAIL, 401, 'UNREGISTERED_USER');
 
   const passwordIsValid = bcrypt.compareSync(password, user.password);
 
-  if (!passwordIsValid) throw new HttpError(INVALID_PASSWORD, 401);
+  if (!passwordIsValid)
+    throw new HttpError(INVALID_PASSWORD, 401, 'INVALID_PASSWORD');
 
   return user;
 }
