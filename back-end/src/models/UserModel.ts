@@ -1,4 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
+import { userBoardsSchema } from './UserBoardsModel';
+import { IUser } from '../interfaces';
 
 const userSchema = new Schema({
   id: { type: Schema.ObjectId },
@@ -15,32 +17,7 @@ const userSchema = new Schema({
     required: true,
     minLength: 7,
   },
-  boards: {
-    type: Map,
-    of: {
-      id: { type: Schema.ObjectId },
-      title: { type: String, required: true },
-      tasks: [
-        {
-          id: { type: Schema.ObjectId },
-          title: {
-            type: String,
-            required: true,
-          },
-          description: String,
-          subTasks: {
-            type: [
-              {
-                id: { type: Schema.ObjectId },
-                text: String,
-                isCompleted: Boolean,
-              },
-            ],
-          },
-        },
-      ],
-    },
-  },
+  boards: [userBoardsSchema],
 });
 
-export const UserModel = mongoose.model('User', userSchema);
+export const UserModel = mongoose.model<IUser & Document>('User', userSchema);
