@@ -12,5 +12,6 @@ router.post('/register', UserController.register);
 router.post('/login', UserController.login);
 router.get('/logout', RevokedTokensController.addToRevokedList);
 router.get('/boards/:userId', verifyAuthorization, BoardsController.getAll);
+router.post('/boards/:userId', verifyAuthorization, BoardsController.createBoard);
 
 export default router;
