@@ -23,10 +23,16 @@ export const verifyAuthorization = async (
       payload: { _id },
     } = decodedInfos as any;
 
-    const user = await RevokedTokensModel.findOne({ userId: _id });
-    if (!user) return;
+    const userWithRevokedTokens = await RevokedTokensModel.findOne({
+      userId: _id,
+    });
 
-    const informedTokenWasRevoked = user.tokens.some(
+    if (!userWithRevokedTokens) {
+      next();
+      return;
+    }
+
+    const informedTokenWasRevoked = userWithRevokedTokens.tokens.some(
       ({ value }) => value === token
     );
 
