@@ -1,21 +1,27 @@
 export type IUserBaseInfos<T = {}> = Record<'email' | 'password', string> & T;
-export interface IUser extends IUserBaseInfos {
- _id?: string;
- name: string;
- boards?: {
-  [key: string]: {
-   id: string;
-   title: string;
-   tasks?: [
+
+interface IUserBoards {
+  _id: string;
+  name: string;
+  columns: [
     {
-     id: string;
-     title: string;
-     description?: string;
-     subTasks?: {
-      type: [{ id: string; text: string; isCompleted: Boolean }];
-     };
+      _id: string;
+      name: string;
+      color: string;
+      tasks: [
+        {
+          _id: string;
+          name: string;
+          description?: string;
+          subTasks: [{ _id: string; name: string; description?: string }];
+        }
+      ];
     }
-   ];
-  };
- };
+  ];
+}
+
+export interface IUser extends IUserBaseInfos {
+  _id?: string;
+  name: string;
+  boards?: IUserBoards[]
 }
