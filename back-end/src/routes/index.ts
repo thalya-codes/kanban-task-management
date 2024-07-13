@@ -17,5 +17,6 @@ router.post(
   verifyAuthorization,
   BoardsController.createBoard
 );
+router.post('/boards/:userId/:boardId', BoardsController.createColumn);
 
 export default router;
