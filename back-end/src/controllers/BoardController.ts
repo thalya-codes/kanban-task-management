@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import mongoose from 'mongoose';
 import { UserModel } from '../models/UserModel';
 import {
   HttpError,
@@ -33,12 +34,34 @@ export class BoardsController {
       response.status(error.code).json(error);
     }
   }
+
   static async getAll({ params }: IBoardRequest, response: Response) {
     try {
       const user = await UserModel.findOne({ _id: params.userId });
 
       if (!user) return response.status(400).json({ message: INVALID_USER_ID });
       response.status(200).json({ boards: user?.boards || [] });
+    } catch (error: any) {
+      response
+        .status(error.status || 500)
+        .json({ message: error?.message || error });
+    }
+  }
+
+  static async createColumn({ params, body }: Request, response: Response) {
+    const { userId, boardId } = params;
+
+    try {
+      await UserModel.updateOne(
+        {
+          _id: new mongoose.Types.ObjectId(userId),
+          'boards._id': new mongoose.Types.ObjectId(boardId),
+        },
+        {
+          $push: { 'boards.$.columns': body },
+        }
+      );
+      response.status(200).json({ message: SUCCESSFUL_OPERATION });
     } catch (error: any) {
       response
         .status(error.status || 500)
